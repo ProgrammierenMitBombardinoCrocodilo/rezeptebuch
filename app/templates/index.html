@@ -1,12 +1,21 @@
 {% extends "base.html" %}
+
 {% block content %}
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<h1 class="text-3xl font-bold mb-6">Rezeptbuch</h1>
+
+<a href="{{ url_for('neues_rezept') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mb-6 inline-block">
+  Neues Rezept hinzufügen
+</a>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
   {% for rezept in rezepte %}
-    <div class="bg-white rounded-xl shadow-md overflow-hidden p-4">
-      <img src="{{ url_for('static', filename='images/' + rezept.bild) }}" class="w-full h-48 object-cover rounded" alt="{{ rezept.titel }}">
-      <h2 class="text-xl font-semibold mt-3">{{ rezept.titel }}</h2>
-      <p class="mt-2 text-gray-700">{{ rezept.zubereitung }}</p>
+    <div class="border rounded shadow p-4">
+      <h2 class="text-xl font-semibold mb-2">{{ rezept.titel }}</h2>
+      <img src="{{ url_for('static', filename=rezept.bild) }}" alt="{{ rezept.titel }}" class="mb-2 rounded">
+      <p>{{ rezept.zubereitung }}</p>
     </div>
+  {% else %}
+    <p>Keine Rezepte vorhanden.</p>
   {% endfor %}
 </div>
 {% endblock %}

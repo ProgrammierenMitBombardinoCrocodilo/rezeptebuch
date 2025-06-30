@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="text-2xl font-bold mb-4">Neues Rezept hinzufügen</h2>
+<form method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+  <div class="mb-4">
+    <label class="block text-gray-700 font-bold mb-2">Titel:</label>
+    <input type="text" name="titel" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700">
+  </div>
+  <div class="mb-4">
+    <label class="block text-gray-700 font-bold mb-2">Bild-Dateiname (z. B. suppe.jpg):</label>
+    <input type="text" name="bild" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700">
+  </div>
+  <div class="mb-6">
+    <label class="block text-gray-700 font-bold mb-2">Zubereitung:</label>
+    <textarea name="zubereitung" rows="4" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700"></textarea>
+  </div>
+  <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+    Rezept hinzufügen
+  </button>
+</form>
+<a href="{{ url_for('home') }}" class="text-blue-500">← Zurück</a>
+{% endblock %}
