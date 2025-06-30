@@ -11,7 +11,7 @@
   {% for rezept in rezepte %}
     <div class="border rounded shadow p-4">
       <h2 class="text-xl font-semibold mb-2">{{ rezept.titel }}</h2>
-      <img src="{{ url_for('static', filename=rezept.bild) }}" alt="{{ rezept.titel }}" class="mb-2 rounded">
+      <img src="{{ url_for('static', filename='images/' ~ rezept.bild) }}" alt="{{ rezept.titel }}" class="mb-2 rounded">
       <p>{{ rezept.zubereitung }}</p>
     </div>
   {% else %}
