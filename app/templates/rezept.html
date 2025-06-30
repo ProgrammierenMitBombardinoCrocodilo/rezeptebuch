@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<a href="{{ url_for('home') }}" class="text-blue-500">&larr; Zurück</a>
+<div class="max-w-2xl mx-auto bg-white p-6 rounded-xl shadow mt-4">
+  <h1 class="text-3xl font-bold mb-4">{{ rezept.titel }}</h1>
+  <img src="{{ url_for('static', filename='images/' + rezept.bild) }}"
+       class="w-full h-64 object-cover rounded mb-4" alt="{{ rezept.titel }}">
+  <h2 class="text-2xl mt-4 mb-2">Zutaten</h2>
+  <ul class="list-disc list-inside mb-4">
+    {% for z in rezept.zutaten %}
+      <li>{{ z }}</li>
+    {% endfor %}
+  </ul>
+  <h2 class="text-2xl mt-4 mb-2">Anleitung</h2>
+  <ol class="list-decimal list-inside space-y-2">
+    {% for s in rezept.anleitung %}
+      <li>{{ s }}</li>
+    {% endfor %}
+  </ol>
+</div>
+{% endblock %}
